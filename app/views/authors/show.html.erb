@@ -1,0 +1,92 @@
+<p id="notice"><%= notice %></p>
+
+<% if @author.image.url.include? "/images/small/missing.png"%>
+	<%= image_tag @author.image.url(:small) %>
+<% end %>
+
+<table border="1" class="rahmen">
+	<tr class="rahmen">
+		<td class="rahmen"><b>Name:</b> </td>
+		<td class="rahmen"><%= @author.title + " " + @author.first_name + " " + @author.last_name %></td>
+	</tr>
+	<tr class="rahmen">
+		<td class="rahmen"><b>Email:<b/></td>
+		<td class="rahmen"><%= mail_to @author.email, nil, :replace_at => "(at)", :encode => "hex" %></td>
+	</tr>
+	<tr>
+		<td class="rahmen"><b>Office:<b/></td>
+		<td class="rahmen"><%= @author.office %></td>
+	</tr>
+	<tr class="rahmen">
+		<td class="rahmen"><b>Address:<b/></td>
+		<td class="rahmen">
+			<%= @author.street %><br />
+  			<%= @author.zip_code + " " +  @author.city %>
+		</td>
+	</tr>
+	<tr class="rahmen">
+		<td class="rahmen"><b>Phones:<b/></td>
+		<td class="rahmen"><%= @author.phone %></td>
+	</tr>
+	<tr class="rahmen">
+		<td class="rahmen"><b>Website:<b/></td>
+		<td class="rahmen"><%= link_to( @author.url, @author.url ) %></td>
+	</tr>
+	<tr class="rahmen">
+		<td class="rahmen"><b>Curriculum Vitae:<b/></td>
+		<td class="rahmen"><%= @author.cv %></td>
+	</tr>
+</table>
+
+<br />
+
+<%= link_to 'Edit', edit_author_path(@author) %> |
+<%= link_to 'Back', authors_path %>
+
+<% publications = @author.publications.sort { |a, b| b.year <=> a.year || b.created_at <=> a.created_at } %>
+<% if !publications.empty? %>
+	<h3> Authors Publications </h3>
+<% end %>
+
+<% num = 1 %>
+<% publications.each do |publication| %>
+		<% fauthors = getFormatedAuthors(publication.authors) %>
+	<% if num % 2 == 1 %>
+		<div id="<%= publication.title.downcase.gsub(" ", "-") + "-|-" + fauthors.downcase.gsub(" ", "-") %>" class="publication <%= " odd_row" %>">
+	<% else %>
+		<div id="<%= publication.title.downcase.gsub(" ", "-") + "-|-" + fauthors.downcase.gsub(" ", "-") %>" class="publication">
+	<% end %>
+		<h4 class="title"> <%= num.to_s + ". " %> 
+			<%= publication.title + " (" + publication.year.to_s + ")"  %>
+		</h4>
+		
+		<span class="authors">
+			<%= fauthors %>
+		</span> <br />
+		<span class="infoRow">
+			<%= getInformationRow(publication) %>
+		</span> <br />
+		<span class="keywords">
+				<% if !publication.keywords.empty? %>
+					<%= "Keywords: " + publication.keywords %>
+				<% end %>
+			</span>
+				<table border="0">
+					<tr>
+						<% if user_signed_in? %>
+							<td><%= link_to "Edit", edit_publication_path(publication) %></td>
+						<% end %>
+						<% if publication.upload_file_name != nil %>
+							<td><%= link_to "Download",  publication.upload.url(:original, false) %></td>
+						<% end %>
+						<td><input type="button" class="bbtn" value="Bibtex" id="b<%= num.to_s %>" />
+						</td>
+					</tr>	
+				</table>
+				<%= simple_format(generate_bibtex(publication), :id => 'bibtex'+num.to_s, :class => 'bibtex') %>
+			</span>
+		</span>
+	</div>
+<% num += 1 %>
+<% end %>
+</p>

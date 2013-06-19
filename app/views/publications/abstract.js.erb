@@ -1,0 +1,4 @@
+if($("#abstract_<%= @publication.id %>").text() == "")
+	$("#abstract_<%= @publication.id %>").html("<%= escape_javascript(render :partial=>"abstract")%>");
+else 
+	$("#abstract_<%= @publication.id %>").html("");

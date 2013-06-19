@@ -1,0 +1,126 @@
+<%= form_for(@publication) do |f| %>
+	<% if flash[:pdf_notice] %>
+      	<p class="pdf_notice"><%= flash[:pdf_notice] %></p>
+    <% end %>
+  <% if @publication.errors.any? && !flash[:pdf_notice] %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@publication.errors.count, "error") %> prohibited this publication from being saved:</h2>
+
+      <ul>
+      <% @publication.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="select">
+  	<%= Type %>
+  	<%= f.collection_select :type_id, Type.all, :id, :format, {:prompt => 'Select Type'} %>
+  </div>
+		
+  <br /> <br />
+		
+  <div class="field all important">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field all inproceedings important">
+    <%= f.label :book_title %><br />
+    <%= f.text_field :book_title %>
+  </div>
+  <div class="field all important">
+  	<%= f.label :author_tokens, "Authors" %><br />
+    <%= f.text_field :author_tokens, data: { load: @publication.authors } %>
+    Click <%= link_to 'here',
+         new_author_path, 
+        :onclick=>"javascript:window.open(this.href,'create_author', 'height=600, width=600'); return false;" %> to create a new author.
+    <!--> Click <%= link_to "here", new_author_path %> to create a new author. </-->
+  </div>
+  
+  <div class="field all important publisher">
+    <%= f.label :publisher %><br />
+    <%= f.text_field :publisher %>
+  </div>
+  <div class="field all important">
+    <%= f.label :published_in %><br />
+    <%= f.text_field :published_in %>
+  </div>
+  <div class="field all important city">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field book inproceedings all">
+    <%= f.label :editors %><br />
+    <%= f.text_field :editor %>
+  </div>
+  <div class="field book all">
+    <%= f.label :editon %><br />
+    <%= f.text_field :edition %>
+  </div>
+  <div class="field all important">
+    <%= f.label :pages %><br />
+    <%= f.text_field :pages %>
+  </div>
+  <div class="field all important">
+    <%= f.label :year %><br />
+    <%= f.select :year, 1970..(Time.now.year).to_i, { :selected => (Time.now.year).to_i } %>
+  </div>
+  <div class="field all important">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field all important">
+    <%= f.label :keywords %><br />
+    <%= f.text_area :keywords, :rows => 5 %>
+  </div>
+  
+  <div class="field all article">
+    <%= f.label :journal %><br />
+    <%= f.text_field :journal %>
+  </div>
+  <div class="field all article">
+    <%= f.label :volume %><br />
+    <%= f.text_field :volume %>
+  </div>
+  <div class="field all article">
+    <%= f.label :issue %><br />
+    <%= f.text_field :issue %>
+  </div>
+  <div class="field all institution">
+    <%= f.label :institution %><br />
+    <%= f.text_field :institution %>
+  </div>
+  <div class="field all university">
+    <%= f.label :university %><br />
+    <%= f.text_field :university %>
+  </div>
+  <div class="field all date_of_last_access">
+    <%= f.label :date_of_last_access %><br />
+    <%= f.date_select :date_of_last_access %>
+  </div>
+  <div class="field all important">
+	
+		<%= f.label :pdf %><br />
+	    <%= f.file_field :upload %>
+	    <%= submit_tag 'read pdf data', :name => 'pdf_button'%>
+
+  </div>
+  <br />
+  <input id ="add_fields_publication" type="button" value="additional fields" class="all important" t></input>
+  <div class="all additional">
+  	<hr />
+  	<div class="field">
+	    <%= f.label :abstract %><br />
+	    <%= f.text_area :abstract %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :doi %><br />
+	    <%= f.text_field :doi %>
+	  </div>
+  </div>
+  <br /><br />
+  <div class="actions all important">
+    <%= f.submit %>
+  </div>
+<% end %>

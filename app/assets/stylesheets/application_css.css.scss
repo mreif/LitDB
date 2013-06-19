@@ -1,0 +1,111 @@
+/* some Header CSS here */
+
+#header {
+    width: 960px;
+    height: 135px;
+    position: relative;
+    z-index: 1000;
+    background-color: #0E4479;
+    color: #FFF;
+    
+  a{
+    color: #FFF;
+  }
+}
+
+#header img {
+  border: 0;
+  vertical-align: middle;
+}
+
+#header_login {
+  position: relative;
+  float: left;
+  padding-left: 4px;
+}
+
+#header_logo {
+  position: relative;
+  float: right;
+  /*padding-top: 12px;*/
+}
+
+/* Menu */
+
+#menu
+{
+  float:left;
+  width:100%;   
+  display: block;
+}
+
+#menu ul
+{
+  height:36px;
+  padding:0;
+  margin:0;
+  display:inline;
+}
+
+#menu ul li
+{
+  float:left;
+  list-style:none;  
+  text-align:center;
+  display:inline;
+  position:relative;
+}
+
+#menu ul li a
+{
+    border-right: 1px solid #333; 
+    font-weight:bold;
+    font-size:15px;
+    text-decoration:none;
+    padding:0 36px;
+    display:block;
+    line-height:36px;    
+}
+
+#search {
+    float: right;
+    display: block;
+    padding: 9px 0;
+}
+
+#box_menu
+{
+    float:left;
+    clear:left;
+  width:960px;
+  height:36px;
+
+  background: #F3F3F3;
+}
+
+/* General*/
+
+#container {
+  margin: 0 auto;
+  text-align: left;
+  width: 960px;
+}
+
+#content {
+  padding-top: 50px;
+  width: 100%;
+}
+
+body {
+  color: #333;
+  font-weight: normal;
+  text-align: left;
+}
+
+#clear {
+  visibility: hidden;
+  clear: both!important;
+  text-indent: -5000px!important;
+  font-size: .1px!important;
+  line-height: 0!important;
+}

@@ -1,0 +1,95 @@
+<p id="notice"><%= notice %></p>
+
+	<p>
+	  <b>Title:</b>
+	  <%= @publication.title %>
+	</p>
+	<% if @publication.type_id == 8%>
+	<p>
+		<b>Book title:</b>
+		<%= @publication.book_title %>
+	</p>
+	<% end %>
+	<p>
+	  <b>Publisher:</b>
+	  <%= @publication.publisher %>
+	</p>
+	<p>
+	  <b>Publisher:</b>
+	  <%= @publication.published_in %>
+	</p>
+	<p>
+	  <b>City:</b>
+	  <%= @publication.city %>
+	</p>
+	
+	<p>
+	  <b>Pages:</b>
+	  <%= @publication.pages %>
+	</p>
+	
+	<p>
+	  <b>Year:</b>
+	  <%= @publication.year %>
+	</p>
+	
+	<p>
+	  <b>Web page:</b>
+	  <%= link_to( @publication.url, @publication.url ) %>
+	</p>
+	
+	<p>
+	  <b>Keywords:</b>
+	  <%= @publication.keywords %>
+	</p>
+	
+	<p>
+	  <b>Abstract:</b>
+	  <%= @publication.abstract %>
+	</p>
+	
+	<p>
+	  <b>Doi:</b>
+	  <%= @publication.doi %>
+	</p>
+	
+	<p>
+	  <b>Edition:</b>
+	  <%= @publication.edition %>
+	</p>
+	
+	<p>
+	  <b>Journal:</b>
+	  <%= @publication.journal %>
+	</p>
+	
+	<p>
+	  <b>Volume:</b>
+	  <%= @publication.volume %>
+	</p>
+	
+	<p>
+	  <b>Issue:</b>
+	  <%= @publication.issue %>
+	</p>
+	
+	<p>
+	  <b>Institution:</b>
+	  <%= @publication.institution %>
+	</p>
+	<% if @publication.type_id == 5 %>
+	<p>
+	  <b>Date of last access:</b>
+	  <%= @publication.date_of_last_access %>
+	</p>
+	<% end %>
+	<!-- May show the pdf in a iframe via "embeddable google document viewer"
+		<iframe src="http://docs.google.com/gview?url=http://SERVERIPHASTOBEINSERTEDHERE{#@publication.upload.url}&e... 
+			style="width:600px; height:500px;" frameborder="0"></iframe>
+	-->	
+	</tr>
+</table>
+
+
+<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Back', publications_path %>

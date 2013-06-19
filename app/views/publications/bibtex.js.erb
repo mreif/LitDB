@@ -1,0 +1,4 @@
+if($("#bibtex_<%= @publication.id %>").text() == "")
+	$("#bibtex_<%= @publication.id %>").html("<%= escape_javascript(render :partial=>"bibtex")%>");
+else
+	$("#bibtex_<%= @publication.id %>").html("")

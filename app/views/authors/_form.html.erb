@@ -1,0 +1,70 @@
+<%= form_for(@author, :html => { :multipart => true }) do |f| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+  	<%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+  <br />
+  <input id ="add_fields_author" type="button" value="additional fields"></input>
+  <div class="extra_info_author">
+  	<hr />
+	  <div class="field">
+	    <%= f.label :office %><br />
+	    <%= f.text_field :office %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :street %><br />
+	    <%= f.text_field :street %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :city %><br />
+	    <%= f.text_field :city %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :zip_code %><br />
+	    <%= f.text_field :zip_code %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :phone %><br />
+	    <%= f.text_field :phone %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :url %><br />
+	    <%= f.text_field :url%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :cv %><br />
+	    <%= f.text_area :cv %>
+	  </div>
+  </div>
+  <br /><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
