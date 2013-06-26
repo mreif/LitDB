@@ -5,7 +5,9 @@ require 'pdf/info'
 class PublicationsController < ApplicationController
   
   #check authentication via devise
-  before_filter :authenticate_user!, :except => [:show, :index, :bibtex]
+  before_filter :authenticate_user!, :except => [:show, :index, :bibtex, :abstract]
+  
+  # caches the index action, until some create or delete method is triggered
   caches_action :index
   
   # GET /publications
@@ -46,6 +48,9 @@ class PublicationsController < ApplicationController
   
   # POST /publications
   # POST /publications.json
+  
+  # here are some extensions
+  # save should not be triggered, if pdf metadata have been read
   def create
     @publication = Publication.new(params[:publication])
     flash[:pdf_notice] = nil
@@ -118,6 +123,9 @@ class PublicationsController < ApplicationController
       end
   end
   
+  # just forms the flash message
+  
+  private 
   def get_msg extraction_hash
     (extraction_hash["authors"].empty?)? ((extraction_hash["title"])? "PDF was successfully read" : "PDF has no metadata") : "Author(s) not found: " + extraction_hash[:authors]
   end

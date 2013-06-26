@@ -3,6 +3,8 @@ class Author < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :title, :email, :search_name, :office, :street, :city, :zip_code,
                   :phone, :url, :cv, :image
   
+  # relationships
+  
   has_many :authorships
   has_many :publications, through: :authorships
   
@@ -16,6 +18,7 @@ class Author < ActiveRecord::Base
   
   #methodes
   
+  # creates the search_name for each author at save time, this one is used for the authors search.
   before_save do
     if self.search_name == nil
       self.search_name = self.title + " " + self.first_name + " " + self.last_name
@@ -25,6 +28,7 @@ class Author < ActiveRecord::Base
     end
   end
   
+  # query for the authors search on the 'new publicaiton' site
   def self.tokens(query)
     authors = where("search_name like ?", "%#{query}%")
     if !authors.empty?
@@ -32,7 +36,8 @@ class Author < ActiveRecord::Base
     end
     # else no results found
   end
-
+  
+  # extract ids from the found authors
   def self.ids_from_tokens(tokens)
     tokens.gsub!(/<<<(.+?)>>>/) { create!(search_name: $1).id }
     tokens.split(',')

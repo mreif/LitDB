@@ -59,15 +59,6 @@ jQuery ->
   $ ->
   $("#publication_type_id").trigger("change")
   
-jQuery -> 
-  $(".bbtn").click -> 
-    num = this.id.substring(this.id.length-1, this.id.length);
-    id = '#bibtex'+num
-    if $(id).is(":visible")
-      $(id).hide()
-    else
-      $(id).show()  
-  
 jQuery ->
   $('#add_fields_publication').click ->
     if $('#add_fields_publication').val() == 'additional fields'

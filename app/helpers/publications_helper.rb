@@ -2,6 +2,7 @@
 
 module PublicationsHelper
   
+  # builds the authors string for a publication
   def getFormatedAuthors(authors)
     result = ""
     authors.each_with_index do |author, i|
@@ -17,7 +18,7 @@ module PublicationsHelper
   end
   
   
-  
+  # creates information string (publisher, pages etc...) for a publication
   def getInformationRow (pub)
     result = "";
     if !pub.published_in.empty?
@@ -36,7 +37,8 @@ module PublicationsHelper
     return result
   end
   
-    def generate_bibtex pub
+  # generates the bibtex strings, publication types are mapped to bibtex types here
+  def generate_bibtex pub
     
     result = ""
     
@@ -113,6 +115,8 @@ module PublicationsHelper
     return result
   end
   
+  # gernerates the author line for the bibtex entry
+  private
   def getBibTexAuthors pub
     result = "author={"
     authors = pub.authors
@@ -125,6 +129,8 @@ module PublicationsHelper
     return result << "},\n"
   end
   
+  # replaces the german umlauts to correct bibtex format
+  private
   def remove_umlaut input
    input.gsub(/[äöü]/, 'ä' => '{\"a}', 'ö' => '{\"o}', 'ü' => '{\"u}')
   end

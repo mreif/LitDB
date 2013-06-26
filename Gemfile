@@ -35,6 +35,7 @@ gem "pdf-reader"
 
 gem "pdf_info", "~> 0.5" #http://documentcloud.github.io/docsplit/ for install instructions and dependencies
 
+gem 'zeroclipboard-rails' # enables copy to clipboard function
 gem 'htmlentities'
 gem 'hpricot'
 gem 'ruby_parser'

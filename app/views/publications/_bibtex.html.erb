@@ -1,1 +1,10 @@
-<%= simple_format(generate_bibtex @publication) %>
+<% bibtex = generate_bibtex @publication %>
+<%= simple_format(bibtex, { :id => "bval_" + @publication.id.to_s },:sanitize => false) %>
+  <button data-clipboard-target='bval_<%=@publication.id%>' id='copy-bibtex-<%=@publication.id%>' title='Copy bibtex to clipboard.'>
+    Copy
+  </button>
+<script>
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#copy-bibtex-<%=@publication.id%>"))
+  });
+</script>

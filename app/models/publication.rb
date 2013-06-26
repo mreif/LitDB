@@ -3,19 +3,19 @@ require 'htmlentities'
 
 class Publication < ActiveRecord::Base
   
-  #accessible attributes
+  # accessible attributes
   attr_accessible :abstract, :city, :date_of_last_access, :doi, :edition, :institution, :issue, :journal, :university,
    :keywords, :pages, :publisher, :title, :url, :volume, :year, :upload, :author_tokens, :type_id, :editor, :book_title, :authorships, :published_in
   
   attr_reader :author_tokens
   
-  # Relationsships
+  # relationsships
   has_many :authorships
   has_many :authors, through: :authorships
   belongs_to :type
   
 
-  # Validations
+  # validations
   
   validates :title, :presence => true, :uniqueness => true, :if => :rdy_to_save?
   validates_presence_of :authors, :if => :rdy_to_save?
@@ -36,6 +36,7 @@ class Publication < ActiveRecord::Base
     end
   end
   
+  # extract the metadata of a given pdf via the pdf_info gem.
   def extract_metadata
     path = upload.queued_for_write[:original].path
     info = PDF::Info.new(path).metadata
@@ -62,7 +63,7 @@ class Publication < ActiveRecord::Base
     self.author_ids = Author.ids_from_tokens(tokens)
   end
   
-  #used for contitional post, only need to validate the attributes on save
+  #used for contitional post, only need to validate the attributes on save (pdf_upload)
   
   def set_rdy_to_save bool
     @rdy_to_save = bool

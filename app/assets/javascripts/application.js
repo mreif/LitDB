@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tokeninput
+//= require zeroclipboard
 //= require_tree .

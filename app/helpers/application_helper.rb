@@ -1,9 +1,11 @@
 module ApplicationHelper
   
+  # sets the page_title
   def title(page_title)
     content_for(:title) { page_title }
   end
   
+  # imitates the simple_format method for the <span> tag
   def simple_format_span(text, html_options={}, options={})
     text = '' if text.nil?
     text = text.dup
