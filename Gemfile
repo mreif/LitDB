@@ -26,7 +26,7 @@ gem 'jquery-rails'
 
 gem 'faker', group: :development
 
-gem 'jquery-tokeninput-rails'
+gem 'jquery-tokeninput-rails', "~> 1.6.0"
 gem "net-ldap"
 gem 'devise'
 gem "devise_ldap_authenticatable", :git => "git://github.com/cschiewek/devise_ldap_authenticatable.git"
@@ -39,8 +39,8 @@ gem 'zeroclipboard-rails' # enables copy to clipboard function
 gem 'htmlentities'
 gem 'hpricot'
 gem 'ruby_parser'
-
-
+gem 'puma'
+gem 'sidekiq'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

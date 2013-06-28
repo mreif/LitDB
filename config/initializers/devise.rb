@@ -3,10 +3,10 @@
 Devise.setup do |config|
   
   # ==> LDAP Configuration 
-  # config.ldap_logger = true
+   config.ldap_logger = true
    config.ldap_create_user = true
    config.ldap_update_password = true
-  # config.ldap_config = "#{Rails.root}/config/ldap.yml"
+   config.ldap_config = "#{Rails.root}/config/ldap.yml"
   # config.ldap_check_group_membership = false
   # config.ldap_check_attributes = false
   # config.ldap_use_admin_to_bind = false
@@ -46,12 +46,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+#  config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+ # config.strip_whitespace_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the

@@ -7,7 +7,7 @@ module PublicationsHelper
     result = ""
     authors.each_with_index do |author, i|
       id = author.id
-      result << '<a href="author/'+ id.to_s + '">'
+      result << '<a href="authors/'+ id.to_s + '">'
       result << author.first_name[0]
       result << ". "
       result << author.last_name

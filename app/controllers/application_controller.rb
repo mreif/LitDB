@@ -1,11 +1,11 @@
 class ApplicationController < ActionController::Base
   
-  rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
-    render :text => exception, :status => 500
-  end
+ # rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
+ #   render :text => exception, :status => 500
+#  end
   
-  rescue_from ActionController::RoutingError, :with => :render_404
-  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+ # rescue_from ActionController::RoutingError, :with => :render_404
+ # rescue_from ActiveRecord::RecordNotFound, :with => :render_404
   
   # Just renders a 404 page if a exception occurs
   
