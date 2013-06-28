@@ -5,7 +5,7 @@
 
 # uncomment and customize to run in non-root path
 # note that config/gitlab.yml web path should also be changed
-#ENV['RAILS_RELATIVE_URL_ROOT'] = "/LiteratureDB"
+ENV['RAILS_RELATIVE_URL_ROOT'] = "/LiteratureDB"
 
 application_path = '/home/litdb/LitDB'
 
