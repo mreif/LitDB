@@ -1,0 +1,61 @@
+Deploying LiteratureDB with puma and nginx
+
+1. Neunen Useraccount anlegen.
+
+2. Ruby und Rails installieren ( Ruby 1.9.3-p392 )
+   Hierfuer emphielt sich Ruby mit Hilfe von RVM zu installieren, da
+   so verschiedene Versionen fuer verschiedene Projekte genutzt werden koennnen.
+	
+	Achtung: RVM benoetigt bei der Installation Admin-Rechte!
+	
+	Befehle: 
+	"curl -L https://get.rvm.io | bash -s stable"
+	"rvm requirements"
+	"rvm install 1.9.3-p392"
+	"gem install rails --version '~> 3.2.0'"
+	
+3. nginx und puma installieren
+	
+	sudo apt-get install nginx
+	gem 'puma', '~> 2.1.0'
+	
+4. init script erstellen
+
+	/* TODO*/
+	
+5. LiteratureDB von GitHub auschecken
+ 
+    "git clone https://github.com/mreif/LitDB.git LitDB"
+
+6. MySQL Datenbank erstellen
+
+   - Datenbank mit dem Namen LiteratureDB anlegen
+   - neben den Standartoperationen muessen fuer die Migaration
+     auch Funktionen zur Verfuegung stehen (Rechte hinzufuegen)
+   - Dumb der alten Datenbank mit dem Namen "oldDB" einlesen
+      -> Dieser befindet sich im Repository unter "migration/literature.sql"
+
+7. Rails fuer die Migration vorbereiten
+   - in das Verzeichnis der Rails-Applikation
+   - "config/database.yml" bearbeiten
+	-> unter production ggf. alle Konfigurationen an die Datenbank anpassen
+   - "config/ldap.yml" bearbeiten
+    -> unter production ggf. alle Konfigurationen an das LDAP anpassen
+   - nun folgende Befehle ausfuehren:
+	- "bundle install"
+	- "RAILS_ENV=production rake db:migrate" (erstellt das Datenbank-Schema)
+   
+8. Datenbank migrieren
+   - im Repository befindet sich ein Migrationsskript unter "migration/literatureDB_MIGRATION.sql
+   - ggf. den Namen der Datenbank im Skript anpassen
+	-> "LiteratureDB" durch den Namen der neuen Datenbank ersetzen, sollte dieser abweichen
+	-> "oldDB" druch den Namen der alten Datenbank ersetzen, sollte dieser abweichen
+   - das Skript ausfuehren
+   - in das Verzeichnis der Anwendung wechseln und
+     "RAILS_ENV=production rake own:crawl_pdfs" ausfuehren
+	 
+9. nginx und puma konfigurieren
+
+  /*
+	TODO
+  */
