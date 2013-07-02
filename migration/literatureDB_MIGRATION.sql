@@ -2,14 +2,14 @@
 #   
 #   1. create DBSchema via Ruby on Rails
 #   2. replace oldDB with the name of the old database
-#   3. replace dev with the name of the new database
+#   3. replace LiteratureDB with the name of the new database
 #   4. comment - DROP FUNCTION SPLIT_STR -
 #   5. run the script and pray
 #
 
-USE dev;
+USE LiteratureDB;
 
-DROP FUNCTION SPLIT_STR;
+#DROP FUNCTION SPLIT_STR;
 
 # CREATE FUNCTION
 CREATE FUNCTION SPLIT_STR(
@@ -24,11 +24,11 @@ RETURN REPLACE(SUBSTRING(SUBSTRING_INDEX(x, delim, pos),
 
 #INSERT NEW TYPES INTO THE DATABASE
 
-DELETE FROM dev.types;
+DELETE FROM LiteratureDB.types;
 
-ALTER TABLE dev.types AUTO_INCREMENT = 1;
+ALTER TABLE LiteratureDB.types AUTO_INCREMENT = 1;
 
-INSERT INTO dev.types (format, created_at, updated_at)
+INSERT INTO LiteratureDB.types (format, created_at, updated_at)
 VALUES  ('book', NOW(), NOW()),
         ('generic', NOW(), NOW()),
         ('report', NOW(), NOW()),
@@ -40,9 +40,9 @@ VALUES  ('book', NOW(), NOW()),
 
 # MIGRATE PUBLICATIONS
 
-DELETE FROM dev.publications;
+DELETE FROM LiteratureDB.publications;
 
-INSERT INTO dev.publications (ID, type_id, title, book_title, publisher, published_in, city, pages, year, url, keywords, abstract, doi,
+INSERT INTO LiteratureDB.publications (ID, type_id, title, book_title, publisher, published_in, city, pages, year, url, keywords, abstract, doi,
                               edition, editor, journal, volume, issue, institution, date_of_last_access, type_of_work,
                               university, created_at, updated_at)
 SELECT  oldDB.publications.ID, 
@@ -84,11 +84,11 @@ FROM oldDB.publications;
 
 # MIGRATE KNOWN AUTHORS
 
-DELETE FROM dev.authors;
+DELETE FROM LiteratureDB.authors;
 
-ALTER TABLE dev.authors AUTO_INCREMENT = 1;
+ALTER TABLE LiteratureDB.authors AUTO_INCREMENT = 1;
 
-INSERT INTO dev.authors (title, first_name, last_name, email, search_name, office, street, city, zip_code, phone, url, cv, created_at, updated_at)
+INSERT INTO LiteratureDB.authors (title, first_name, last_name, email, search_name, office, street, city, zip_code, phone, url, cv, created_at, updated_at)
 SELECT  IFNULL(IF(oldDB.people.Title = "Sekret&auml;rin", "", oldDB.people.Title),"") AS title,
         IFNULL(oldDB.people.GivenName,"") AS first_name,
         IFNULL(oldDB.people.Surname,"") AS last_name,
@@ -109,9 +109,9 @@ SELECT  IFNULL(IF(oldDB.people.Title = "Sekret&auml;rin", "", oldDB.people.Title
 
 # MIGRATE THE AUTHORSHIPS
 
-DELETE FROM dev.authorships;
+DELETE FROM LiteratureDB.authorships;
 
-ALTER TABLE dev.authorships AUTO_INCREMENT = 1;
+ALTER TABLE LiteratureDB.authorships AUTO_INCREMENT = 1;
 
 UPDATE oldDB.pub_aut SET author = replace(author, "B. Freisleben", "freisleb");
 UPDATE oldDB.pub_aut SET author = replace(author, "Bernd Freisleben", "freisleb");
@@ -197,10 +197,10 @@ UPDATE oldDB.pub_aut SET author = replace(author, "W. Wiechert" ,  "Wolfgang Wie
 UPDATE oldDB.pub_aut SET author = replace(author, "akulla" ,  "Alban Kulla");
 
 
-INSERT INTO dev.authorships (publication_id, author_id, created_at, updated_at)
+INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, updated_at)
     SELECT  publication AS publication_id,
             (SELECT id
-                FROM dev.authors
+                FROM LiteratureDB.authors
                 WHERE author IN (SELECT id
                                        FROM oldDB.people
                                        WHERE Surname = last_name
@@ -213,7 +213,7 @@ INSERT INTO dev.authorships (publication_id, author_id, created_at, updated_at)
 
 # INSERT UNKOWN AUTHORS
 
-INSERT INTO dev.authors (title, first_name, last_name, email, search_name, office, street, city, zip_code, phone, url, cv, created_at, updated_at)
+INSERT INTO LiteratureDB.authors (title, first_name, last_name, email, search_name, office, street, city, zip_code, phone, url, cv, created_at, updated_at)
 
 SELECT DISTINCT
         "",
@@ -251,11 +251,11 @@ SELECT DISTINCT
 
 # INSERT AUTHORSHIPS FOR THE UNKNOWN AUTHORS
 
-INSERT INTO dev.authorships (publication_id, author_id, created_at, updated_at)
+INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, updated_at)
 
     SELECT  publication AS publication_id,
             (SELECT id
-                FROM dev.authors 
+                FROM LiteratureDB.authors 
                     WHERE author = search_name
             ) AS author_id,
             NOW(),
@@ -266,93 +266,93 @@ INSERT INTO dev.authorships (publication_id, author_id, created_at, updated_at)
 # SOME UPDATES ON THE AUTHOR_NAMES
 
 #Updating given names, elemination html-encodings
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET first_name = replace(first_name, "&eacute;","é");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET first_name = replace(first_name, "&ouml;","ö");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET first_name = replace(first_name, "&uuml;","ü");
 
 #Updating surnames, elemination html-encodings
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET last_name = replace(last_name, "&ouml;","ö");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET last_name = replace(last_name, "&auml;","ö");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET last_name = replace(last_name, "&uuml;","ü");
 
 #Updating searchname column, elemination html-encodings
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET search_name = replace(search_name, "&eacute;","é");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET search_name = replace(search_name, "&ouml;","ö");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET search_name = replace(search_name, "&uuml;","ü");
 
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET search_name = replace(search_name, "&auml;","ä");
 
 #Updating malformed mail format
-UPDATE dev.authors
+UPDATE LiteratureDB.authors
 SET email = replace(email, "mailto:","");
 
 #Updating publications to replace html-endcodings
 
 # Updating the title column
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET title = replace(title, "&uuml;", "ü");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET title = replace(title, "&auml;", "ä");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET title = replace(title, "&#039;", "'");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET title = replace(title, "&oacute;", "ó");
 
 # Updating the publisher column
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET publisher = replace(publisher, "&Uuml;", "Ü");
 
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET publisher = replace(publisher, "&oacute;", "ó");
 
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET publisher = replace(publisher, "&eacute;","é");
 
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET publisher = replace(publisher, "&aacute;","á");
 
 # Updating the published_in column
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET published_in = replace(published_in, "&amp;","&");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET published_in = replace(published_in, "&uuml;","ü");
 
 # Updating the editor column
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET editor = replace(editor, "&Aacute;","Á");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET editor = replace(editor, "&aacute;","á");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET editor = replace(editor, "&eacute;","é");
 
-UPDATE dev.publications
+UPDATE LiteratureDB.publications
 SET editor = replace(editor, "&oacute;","ó");
