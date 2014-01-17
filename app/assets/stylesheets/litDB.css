@@ -8,6 +8,14 @@
 		font-style: italic;
 	}
 
+	.newslisting form {
+		display: inline !important;
+	}
+	
+	.newslisting form div {
+		display: inline !important;
+	}
+	
 	@font-face {
 	  font-family: 'Glyphicons Halflings';
 	  src: url('../fonts/glyphicons-halflings-regular.eot');
