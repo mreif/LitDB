@@ -19,5 +19,14 @@ class ApplicationController < ActionController::Base
      render :file => "#{Rails.root}/public/404.html", :status => 404, :layout => false
   end
   
+  def after_sign_out_path_for(resource_or_scope)
+    publications_path
+  end
+
+  def after_sign_in_path_for(resource_or_scope)
+    publications_path
+  end
+
+
   protect_from_forgery
 end

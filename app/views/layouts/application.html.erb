@@ -11,12 +11,12 @@
 		<nav id ="box_menu">
 			<div id="menu">
 				<ul>
-				    <li> <a href="/publications">Publications</a></li>
-				    <li> <a href="/authors">Authors</a> </li>
+				    <li> <%= link_to "Publications", publications_path %></li>
+				    <li> <%= link_to "Authors", authors_path %> </li>
 				    <% if user_signed_in?%>
 				   		<li> <%= link_to "Logout",   destroy_user_session_path, :method => :delete %> </li>
 				    <% else %>
-				    	<li> <a href="/users/sign_in">Login</a> </li>
+				    	<li> <%= link_to "Login", new_user_session_path %> </li>
 					<% end %>
 				</ul>
 				<% if  current_page?(root_path) || request.path.match(/\/authors\/\d+/) != nil %>

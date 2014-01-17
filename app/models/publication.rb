@@ -20,7 +20,7 @@ class Publication < ActiveRecord::Base
   validates :title, :presence => true, :uniqueness => true, :if => :rdy_to_save?
   validates_presence_of :authors, :if => :rdy_to_save?
   #validates_attachment :upload, :presence => true
-  validates_attachment_content_type :upload, :content_type => ['application/pdf', 'application/octet-stream', 'application/postscript', 'application/x-gzip']
+  #validates_attachment_content_type :upload, :content_type => ['application/pdf', 'application/octet-stream', 'application/postscript', 'application/x-gzip']
   
   # paperclip
   

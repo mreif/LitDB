@@ -1,5 +1,5 @@
 LiteraturDB::Application.routes.draw do
-scope "/LiteratureDB" do
+#scope "/LiteratureDB" do
   devise_for :users
 
   resources :authors, :publications, :types
@@ -9,7 +9,7 @@ scope "/LiteratureDB" do
     get 'bibtex', :to => "publications#bibtex", :as => :bibtex
     get 'abstract', :to => "publications#abstract", :as => :abstract
   end
-end
+#end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

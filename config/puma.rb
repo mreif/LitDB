@@ -5,7 +5,7 @@
 
 # uncomment and customize to run in non-root path
 # note that config/gitlab.yml web path should also be changed
-ENV['RAILS_RELATIVE_URL_ROOT'] = "/LiteratureDB"
+#ENV['RAILS_RELATIVE_URL_ROOT'] = "/LiteratureDB"
 
 application_path = '/home/litdb/LitDB'
 
@@ -30,12 +30,14 @@ daemonize true
 
 # Store the pid of the server in the file at “path”.
 #
-pidfile "#{application_path}/tmp/pids/puma.pid"
+#
+#pidfile "#{application_path}/tmp/pids/puma.pid"
+pidfile "/var/run/litdb/pids/puma.pid"
 
 # Use “path” as the file to store the server info state. This is
 # used by “pumactl” to query and control the server.
 #
-state_path "#{application_path}/tmp/pids/puma.state"
+state_path "/var/run/litdb/pids/puma.state"
 
 # Redirect STDOUT and STDERR to files specified. The 3rd parameter
 # (“append”) specifies whether the output is appended, the default is
@@ -63,7 +65,7 @@ stdout_redirect "#{application_path}/log/puma.stdout.log", "#{application_path}/
 # The default is “tcp://0.0.0.0:9292”.
 #
 # bind 'tcp://0.0.0.0:9292'
-bind "unix://#{application_path}/tmp/sockets/litdb.socket"
+bind "unix:///var/run/litdb/sockets/litdb.socket"
 
 # Instead of “bind 'ssl://127.0.0.1:9292?key=path_to_key&cert=path_to_cert'” you
 # can also use the “ssl_bind” option.
