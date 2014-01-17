@@ -197,7 +197,7 @@ UPDATE oldDB.pub_aut SET author = replace(author, "W. Wiechert" ,  "Wolfgang Wie
 UPDATE oldDB.pub_aut SET author = replace(author, "akulla" ,  "Alban Kulla");
 
 
-INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, updated_at)
+INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, updated_at, pos)
     SELECT  publication AS publication_id,
             (SELECT id
                 FROM LiteratureDB.authors
@@ -207,7 +207,8 @@ INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, upd
                                               AND GivenName = first_name)
             ) AS author_id,
             NOW(),
-            NOW()
+            NOW(),
+            pos
     FROM oldDB.pub_aut
     WHERE author IN (SELECT id FROM oldDB.people) AND publication IS NOT NULL;
 
@@ -251,7 +252,7 @@ SELECT DISTINCT
 
 # INSERT AUTHORSHIPS FOR THE UNKNOWN AUTHORS
 
-INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, updated_at)
+INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, updated_at, pos)
 
     SELECT  publication AS publication_id,
             (SELECT id
@@ -259,7 +260,8 @@ INSERT INTO LiteratureDB.authorships (publication_id, author_id, created_at, upd
                     WHERE author = search_name
             ) AS author_id,
             NOW(),
-            NOW()
+            NOW(),
+            pos
     FROM oldDB.pub_aut
     WHERE publication IS NOT NULL AND author <> ALL (SELECT id FROM oldDB.people);
 
