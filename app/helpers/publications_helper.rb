@@ -10,7 +10,7 @@ module PublicationsHelper
       result << '<a href="authors/'+ id.to_s + '">'
       result << author.first_name[0]
       result << ". "
-      result << author.last_name
+      result << author.last_namer
       result << '</a>'
       result << ((i < authors.length - 1)? ", " : "");
     end
