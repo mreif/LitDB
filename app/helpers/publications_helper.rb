@@ -10,7 +10,7 @@ module PublicationsHelper
       result << '<a href="authors/'+ id.to_s + '">'
       result << author.first_name[0]
       result << ". "
-      result << author.last_namer
+      result << author.last_name
       result << '</a>'
       result << ((i < authors.length - 1)? ", " : "");
     end
@@ -22,10 +22,11 @@ module PublicationsHelper
   def getInformationRow (pub)
     result = "";
     if !pub.published_in.empty?
-      result << (pub.published_in.empty? ? "" : "In: " + pub.published_in)
+      result << (pub.published_in.empty? ? "" : pub.published_in)
       result << (pub.city.empty? ? "" : (", " + pub.city))
       result << (pub.pages.empty? ? "" : (", pp." + pub.pages))
       result << (pub.publisher.empty? ? "" : (", " + pub.publisher))
+      result << (pub.year == 0 ? "." : (", " + pub.year.to_s + "."))
     else 
       result << (pub.journal.empty? ? "" : (pub.journal + ", "))
       result << (pub.volume.empty? ? "" : (pub.volume + ", "))
@@ -33,6 +34,7 @@ module PublicationsHelper
       result << (pub.city.empty? ? "" : (pub.city + ", "))
       result << (pub.pages.empty? ? "" : ("pp. " + pub.pages + ", "))
       result << (pub.publisher.empty? ? "" : pub.publisher)
+      result << (pub.year.empty? ? "." : (", " + pub.year.to_s + "."))
     end
     return result
   end

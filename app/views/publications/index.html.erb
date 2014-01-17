@@ -1,58 +1,51 @@
-
+<div id="content">
 <% if user_signed_in? %>
 		<%= link_to 'New Publication', new_publication_path %>
 <% end %>
-<br /><br />
-<% title "Publication Overview" %>
-<br />
-<% num = 1 %>
-<% publications = Publication.find(:all, :order => "year DESC, created_at DESC") %>
-<% publications.each do |publication| %>
-	<% fauthors = getFormatedAuthors(publication.authors.order('authorships.pos ASC')) %>
-	<% if num % 2 == 1 %>
-		<div id="<%= publication.title.downcase.gsub(" ", "-") + "-|-" + fauthors.downcase.gsub(" ", "-") %>" class="publication <%= " odd_row" %>">
-	<% else %>
-		<div id="<%= publication.title.downcase.gsub(" ", "-") + "-|-" + fauthors.downcase.gsub(" ", "-") %>" class="publication">
-	<% end %>
-			<h4 class="title"> <%= num.to_s + ". " %> 
-				<%= publication.title + " (" + publication.year.to_s + ")"  %>
-			</h4>
-			<%= simple_format_span fauthors %>
-			<br />
-			<span class="infoRow">
-			<%= simple_format_span getInformationRow(publication) %><br />
-			<span class="keywords">
-					<% if !publication.keywords.empty? %>
-						<%= "Keywords: " + publication.keywords %>
-					<% end %>
-			</span>
-			<table border="0">
-						<tr>
-							<td>
-								<% if publication.upload_file_name != nil %>
-									<%= button_to "Download",  publication.upload.url(:original, false), :method => :get %>
-								<% end %>
-							</td>
-							<td>
-								<%= button_to "Bibtex", publication_bibtex_path(publication), :method => :get,  :remote => 'true' %>
-						    </td>
-						    <td>
-								<% if !publication.abstract.empty? %>
-									<%= button_to "Abstract", publication_abstract_path(publication), :method => :get, :remote => 'true' %>
-								<% end %>
-							</td>
-							<td width="100%"></td>
-							<% if user_signed_in? %>
-								 <td white-space="nowrap"> <%= button_to "Edit", edit_publication_path(publication), :method => :get %> </td>
-								 <td white-space="nowrap"><%= button_to "Delete", publication_path(publication), :confirm => 'Are you sure you want to delete this publication?', :method => :delete %> </td>
-							<% end %>
-						</tr>
-			</table>
+<h2 class="news" >
+	Publications
+	<input id="srch" type="text" value="" autofocus="true" size="45" style="float:right"/>
+</h2>
+	<div class="newslisting">
+	<% publications = Publication.find(:all, :order => "year DESC, created_at DESC") %>
+	<% num = publications.count %>
+	<% publications.each do |publication| %>
+	<% fauthors_search = getFormatedAuthors(publication.authors.order('authorships.pos ASC')) %>
+		<% fauthors = "" %>
+			<% authors = publication.authors.order('authorships.pos ASC') %>
+			<% authors.each_with_index do |author, i| %>
+				<% link_text = author.first_name[0] + ". " + author.last_name %>
+				<% link = link_to link_text, author_path(author) %>
+				<% fauthors << link %>
+				<% fauthors << ((i < authors.length - 1)? ", " : "") %>
+			<% end %>
+		
+		<% if num % 2 == 1 %>
+			<div id="<%= publication.title.downcase.gsub(" ", "-") + "-" + fauthors_search.downcase.gsub(" ", "-") %>" class="publication odd">
+		<% else %>
+			<div id="<%= publication.title.downcase.gsub(" ", "-") + "-" + fauthors_search.downcase.gsub(" ", "-") %>" class="publication even">
+		<% end %>
+				<span class="paper_author"> <%= num.to_s + ". " %>  <%= simple_format_span fauthors %> </span><br />
+				<span class="paper_title"> 
+					<%= publication.title %>
+				</span>
+				<% if publication.upload_file_name != nil %> 
+					<%= button_to "PDF",  publication.upload.url(:original, false), :method => :get, class: "glyphicon glyphicon-save" %>
+				<% end %>
+				<%= button_to "BibTex", publication_bibtex_path(publication), :method => :get,  :remote => 'true', class: "glyphicon glyphicon-book", :style => "display:inline !important;" %>
+				<br />
+				<span class="paper_bib"> <%= simple_format_span getInformationRow(publication) %> </span>
+				<% if user_signed_in? %>
+					<table>
+					 <td white-space="nowrap"> <%= button_to "Edit", edit_publication_path(publication), :method => :get %> </td>
+					 <td white-space="nowrap"><%= button_to "Delete", publication_path(publication), :confirm => 'Are you sure you want to delete this publication?', :method => :delete %> </td>
+					</table>		
+				<% end %>
+			</div>
 			<div>
 				<div id="bibtex_<%= publication.id.to_s %>"></div>
-			</div>
-			<div id="abstract_<%= publication.id.to_s %>"></div>
-	</div>
-<% num += 1 %>
+			</div>			
+<% num -= 1 %>
 <% end %>
-	
+	</div>
+</div>

@@ -1,8 +1,8 @@
+<div id="content">
 <% if user_signed_in? %>
 		<%= link_to "New Author", new_author_path %>
 <% end %>
-<br /> <br />
-<% title "Listing authors" %>
+<h2 class="news">Authors</h2>
 <table border="1" class="rahmen">
   <tr class="rahmen">
     <th class="rahmen">Name</th>
@@ -12,11 +12,15 @@
     <% if user_signed_in? %>
 	    <th class="rahmen"></th>
 	    <th class="rahmen"></th>
-	    <% end %>
+	<% end %>
   </tr>
-
+<% even = true %>
 <% Author.where("not(first_name like ?)", "%.%").sort{ |a,b| a.last_name <=> b.last_name }.each do |author| %>
-  <tr class="rahmen"> 
+  <% if even %>
+  	<tr class="rahmen even">
+  <% else %> 
+  	<tr class="rahmen odd">
+  <% end %>
     <td class="rahmen" width="150"><%= link_to author.title + " " + author.first_name + " " + author.last_name, author %></td>
     <td class="rahmen" width="300"><%= mail_to author.email, nil, :replace_at => "(at)", :encode => "hex" %></td>
     <td class="rahmen" width="150"><%= author.phone %></td>
@@ -26,5 +30,7 @@
 	    <td class="rahmen" width="30" ><%= link_to 'Delete', author, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
+  <% even = !even %>
 <% end %>
 </table>
+</div>

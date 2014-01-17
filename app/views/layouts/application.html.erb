@@ -8,24 +8,6 @@
 </head>
 <body>
 	<div id="container">
-		<nav id ="box_menu">
-			<div id="menu">
-				<ul>
-				    <li> <%= link_to "Publications", publications_path %></li>
-				    <li> <%= link_to "Authors", authors_path %> </li>
-				    <% if user_signed_in?%>
-				   		<li> <%= link_to "Logout",   destroy_user_session_path, :method => :delete %> </li>
-				    <% else %>
-				    	<li> <%= link_to "Login", new_user_session_path %> </li>
-					<% end %>
-				</ul>
-				<% if  current_page?(root_path) || request.path.match(/\/authors\/\d+/) != nil %>
-					<div id="search">
-						<input id="srch" type="text" value="" autofocus="true" size="45"/>
-					</div>
-				<% end %>
-			</div>
-		</nav>
 		<div id="content" class="content">
 			<h1> <%= yield(:title) %></h1>
       		<%= yield %>
