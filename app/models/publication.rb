@@ -34,6 +34,9 @@ class Publication < ActiveRecord::Base
     if self.url == 'http://www.'
       self.url = ''
     end
+    @publication.authorships.each_with_index do |authorship, i|
+      authorship.pos = i
+    end
   end
   
   # extract the metadata of a given pdf via the pdf_info gem.

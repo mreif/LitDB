@@ -119,7 +119,7 @@ module PublicationsHelper
   private
   def getBibTexAuthors pub
     result = "author={"
-    authors = pub.authors
+    authors = pub.authors.order('authorships.pos ASC')
     authors.each_with_index do |author, index|
       result << (remove_umlaut(author.first_name)) + " " + (remove_umlaut(author.last_name))
       if index < authors.size - 1

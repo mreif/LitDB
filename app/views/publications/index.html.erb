@@ -8,7 +8,7 @@
 <% num = 1 %>
 <% publications = Publication.find(:all, :order => "year DESC, created_at DESC") %>
 <% publications.each do |publication| %>
-	<% fauthors = getFormatedAuthors(publication.authors) %>
+	<% fauthors = getFormatedAuthors(publication.authors.order('authorships.pos ASC')) %>
 	<% if num % 2 == 1 %>
 		<div id="<%= publication.title.downcase.gsub(" ", "-") + "-|-" + fauthors.downcase.gsub(" ", "-") %>" class="publication <%= " odd_row" %>">
 	<% else %>
