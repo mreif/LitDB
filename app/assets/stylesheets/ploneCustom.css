@@ -1,0 +1,1533 @@
+/* <!-- compression status: 1 --> (this is for http compression) */
+/*  (do not remove this :) */
+/*  (not this either :) */
+
+
+
+.context_ssl,
+.documentEditable * .context_ssl {
+    background: transparent url(http://www.uni-marburg.de/lock_icon.gif) 1px 3px no-repeat;
+    cursor: pointer;
+    font-size: 85%;
+    margin-bottom: 1em;
+    padding: 1px 1px 1px 21px;
+    text-transform: lowercase;
+}
+
+a.red  {
+       color: red;
+}   
+
+.link-external {
+    background: transparent;
+    padding: 0;
+}
+
+
+#content .link-external {
+    /* background: transparent url(http://www.uni-marburg.de/link_icon.png) 0px 5px no-repeat;
+    padding: 1px 2px 1px 15px; */
+    background:transparent url(http://www.uni-marburg.de/link_icon.png) no-repeat 100% 60%;
+    padding: 1px 15px 1px 0px;
+}
+
+
+.link-mailto {
+    background: transparent url(http://www.uni-marburg.de/mail_icon.gif) 0px 6px no-repeat;
+    padding: 1px 0px 1px 18px;
+}
+
+.link-callto {
+    background: transparent url(http://www.uni-marburg.de/phone_icon.gif) 0px 5px no-repeat;
+    padding: 1px 0px 1px 18px;
+}
+
+.link-fax {
+    background: transparent url(http://www.uni-marburg.de/fax_icon.gif) 0px 3px no-repeat;
+    padding: 1px 0px 1px 18px;
+}
+
+.link-pager {
+    background: transparent url(http://www.uni-marburg.de/pager_icon.gif) 0px 7px no-repeat;
+    padding: 1px 0px 1px 18px;
+}
+
+.link-loc {
+    background: transparent url(http://www.uni-marburg.de/loc_icon.png) 0px 3px no-repeat;
+    padding: 1px 0px 1px 18px;
+}
+
+.link-clock {
+    background: transparent url(http://www.uni-marburg.de/clock_icon.png) 0px 3px no-repeat;
+    padding: 2px 0px 1px 18px;
+}
+
+p.link-clock {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+input {
+	border: 1px solid #777777;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	color: #000;
+	margin: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+        border: 0;
+}
+
+h3.hr {
+        padding-top: 15px;
+        border-top: 1px solid #000;
+}
+
+dd .ploneCalendar th input#abschicken {
+        padding: 1px 0;
+}
+
+a {
+	color: #006093;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1, h2, h3 {
+        font-size: 1.36em;
+        font-weight: normal;
+        font-style: normal;
+        font-variant: normal;
+        text-decoration: none;
+        margin-bottom: 15px;
+        margin-top: 0.5em !important;
+        padding: 0;
+        border: none;
+}
+
+h1 {
+        font-size: 1.36em !important;
+        font-weight: normal !important;
+}
+
+h2 {
+        font-size: 1.1em !important;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 5px;
+}
+
+h3 {
+        font-size: 1em !important;
+        font-weight: bold;
+        margin-top: 8px;
+        margin-bottom: 5px;
+}
+
+h4 {
+        font-size: 0.9em !important;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        margin: 0;
+        padding-top: 6px !important;
+        padding-bottom: 4px !important;
+        color: #606060;
+}
+
+/*td {
+        font-size: 0.8em;
+}*/
+
+
+#pr h1 {
+        margin: 0 0 5px 0;
+}
+
+#pr h3, #pr h3.kontakt {
+        margin: 15px 0 0 0;
+        padding: 0;
+        font-size: 1em;
+        font-weight: bold;
+}
+
+#pr p.kontakt {
+        padding: 0;
+        margin-bottom: 15px;
+}
+
+#pr h4.zeit {
+        margin-top: 0;
+        color: #606060;
+        font-size: 1em;
+        font-weight: bold;
+}
+
+#pr #newscontent {
+        margin-top: 15px;
+}
+
+#pr #verantwortlich {
+        font-size: inherit;
+        text-align: right;
+        margin-bottom: 0;
+}
+
+#pr .erstellt {
+        font-size: inherit;
+        text-align: right;
+        margin-bottom: 0;
+}
+
+#pr dl {
+        margin: 20px 0 10px 0;
+        padding: 0;
+}
+
+#pr dt, #pr h4 {
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        font-size: 1em;
+}
+
+#pr dd {
+        margin: 0;
+        padding: 0;
+}
+
+p.standard {
+        font-size: inherit;
+}
+
+p.zitat {
+        font-size: inherit;
+        margin-left: 2em;
+        margin-right: 3em;
+}
+
+p.kompakt {
+        font-size: 0.85em;
+}
+
+p.termin, p.news, p.news2 {
+        margin: 4px 4px 0 0;
+        padding: 0;
+}
+
+p.datum, p.datum2 {
+        text-align: right;
+        color: #808080;
+        margin: 0 4px 0 0;
+        padding: 0;
+        padding-bottom: 4px;
+}
+
+p.datum {
+        border-bottom: 1px dashed #808080;
+}
+
+p.news, p.news2 {
+        padding-bottom: 4px;
+}
+
+p.news{
+        border-bottom: 1px dashed #808080;
+}
+
+.rotgerahmt {
+        margin: 1em 0;
+        border: 4px solid #fe0000;
+        padding: 1em 0.5em;
+}
+
+ul.inline {
+        display: inline;
+        padding: 0;
+        margin: 15px 0;
+}
+
+
+
+ul.inline li {
+        display: inline;
+        list-style-type: none;
+        padding-right: 10px;
+
+}
+
+td.rahmen {
+	height: 11px;
+	background-color: #E3E3E3;
+}
+
+td.leer {
+	width: 11px;
+	background-color: #FFFFFF;
+}
+
+td.rahmen_oben {
+	width: 11px;
+	height: 135px;
+	background-color: #E3E3E3;
+	border-bottom: 1pt solid #666666;
+}
+
+td.rahmen_unten {
+	width: 11px;
+	background-color: #E3E3E3;
+	border-top: 1pt solid #666666;
+}
+
+td.rahmen_boden {
+	height: 16px;
+	background-color: #E3E3E3;
+	border-bottom: 1pt solid #666666;
+}
+
+.indented {
+        margin-left: 10%;
+}
+
+#audit {
+        text-align: center;
+        padding: 5px;
+        margin: 0;
+}
+
+/* Seitenkopf Anfang ------------------------------------- */
+
+table#layout {
+	width: 100%;
+        height: 100%;
+	text-align: left;
+}
+
+#ou-logo {
+	padding: 0;
+	margin: 0;
+	height: 135px;
+	width: 180px !important;
+	background-color: #FFF;
+	border-left: 1px solid #666;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	vertical-align: top;
+}
+
+#ou-logo img {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#emo, #banner {
+	padding: 0;
+	height: 135px;
+        color: #FFF;
+	background-color: #1C74A4;
+	border-top: 1px solid #666;
+	border-left: 1px solid #666;
+	border-bottom: 1px solid #666;
+	text-align: right;
+	vertical-align: top;
+}
+
+
+#direkt_links {
+	padding: 0;
+	margin: 0;
+	height: 135px;
+	width: 180px !important;
+        vertical-align: top;
+	background-color: #FFF;
+	border-top: 1px solid #666;
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+#direkt_links p {
+	margin: 0;
+	padding: 20px 0 0 8px;
+        text-align: left;
+}
+
+#direkt_links p select {
+        font-size: 0.8em;
+}
+
+/* Seitenkopf Ende --------------------------------------- */
+
+/* Navigation Anfang ------------------------------------- */
+
+#hauptnavigation {
+	vertical-align: middle;
+}
+
+#menueleiste {
+	border-right: 1px solid #666;
+}
+
+td#start, #menue td {
+	margin: 0;
+	padding: 0;
+	color: #FFF;
+	text-align: center;
+	font-weight: bold;
+	font-size: 0.9em;
+	background-color: #727272;
+	border-top: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+        white-space: nowrap;
+}
+
+
+td#start {
+	border-left: 1px solid #666;
+        text-align: center;
+}
+
+#hauptnavigation td a.aktiv, #menue td a.aktiv {
+	color: #FFF;
+	background-color: #444;
+}
+
+#hauptnavigation td a {
+	padding: 2px 0 3px 0;
+	margin-top: 0;
+	display: block;
+	text-decoration: none;
+	background-color: transparent;
+	color: #FFF;
+}
+
+#hauptnavigation td a:hover {
+	background-color: #434339;
+	vertical-align: bottom;
+}
+
+/* Navigation Ende --------------------------------------- */
+
+/* Hauptteil Anfang -------------------------------------- */
+
+.suchfeld {
+    border-style: inset;
+}
+
+#list_all_documents h1 {
+        /* text-decoration: underline; */
+        letter-spacing: 0.3em;
+}
+
+
+#list_all_documents .plain h1 {
+        /* text-decoration: none; */
+        letter-spacing: inherit;
+}
+
+#hauptteil {
+	vertical-align: top;
+}
+
+#spalte_links {
+	padding: 0;
+	margin: 0;
+	width: 180px !important;
+	background-color: #F4F4F4;
+	border-left: 1px solid #666;
+	border-right: 1px solid #CCC;
+        vertical-align: top;
+}
+
+#portlet-untermenue {
+	margin: 0;
+	padding: 0 0 5px 0;
+	background-image: url(http://www.uni-marburg.de/hg_balken_dl.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+#portlet-untermenue ul {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	font-size: 0.9em;
+	font-weight: normal;
+	color: #FFF;
+}
+
+#portlet-untermenue ul li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #D1D1CF;
+	background-color: #F0F7FF;
+}
+
+#portlet-untermenue ul li ul {
+        margin: 0;
+        padding: 0;
+	font-size: 1em;
+}
+
+#portlet-untermenue ul li ul li {
+	list-style: none;
+	border: none;
+}
+
+#portlet-untermenue ul li a {
+        text-transform: none;
+	text-decoration: none;
+	padding: 4px 2px 4px 8px;
+	color: #000;
+	display: block;
+}
+
+#portlet-untermenue ul li ul li a {
+	padding: 4px 2px 4px 15px;
+	color: #000;
+	display: block;
+}
+
+#portlet-untermenue ul li a.intranet {
+        background: transparent url(http://www.uni-marburg.de/intranet1.gif) center left no-repeat;
+	padding-left: 23px;
+}
+
+#portlet-untermenue ul li ul li a.intranet {
+        background: transparent url(http://www.uni-marburg.de/intranet2.gif) center left no-repeat;
+	padding-left: 30px;
+}
+
+#portlet-untermenue ul li a:hover {
+	background-color: #F9F8F5;
+	text-decoration: none;
+}
+
+#portlet-targetgrouplinks {
+	margin-top: 25px;
+}
+
+.portletContent p {
+        padding-left: 14px;
+}
+
+#topnews {
+        margin-bottom: 3em;
+}
+
+#topnews-image {
+        float: left;
+        margin-right: 8px;
+        margin-bottom: 10px;
+}
+
+#topnews-text h2 {
+        margin-top: 0;
+}
+
+h2.news {
+        clear: both;
+        /*margin-top: 3em;*/
+        padding: 4px 0 4px 14px;
+        border-top: 1px solid #7B7986;
+        border-bottom: 1px solid #7B7986;
+}
+
+
+
+#newslisting .even, .newslisting .even {
+        background-color: #EAEAEC;
+}
+
+
+#eventslisting .even, .eventslisting .even {
+        background-color: #EAEAEC;
+}
+
+#eventslisting p.standard {
+        margin: 0 0 4px 0;
+        padding-left: 4px;
+}
+
+table#eventslisting {
+   width: 100%;
+}
+
+#eventslisting th {
+        text-align: left;
+        font-weight: bold;
+        font-size: 0.9em;
+        padding: 4px 0 4px 4px;
+        border-top: 1px solid #7B7986;
+        border-bottom: 1px solid #7B7986;
+}
+
+#eventslisting th#thcol1 {
+        padding: 4px 0 4px 14px;
+        width: 10%;
+}
+
+#eventslisting th#thcol2 {
+        width: 10%;
+}
+
+#eventslisting th#thcol3 {
+        width: 80%;
+}
+
+
+#eventslisting td {
+        text-align: left;
+        font-size: 0.9em;
+        vertical-align: top;
+        padding: 4px 0 4px 4px;
+}
+
+#eventslisting td.tdcol1 {
+        padding-left: 14px;
+}
+
+
+dl {
+	padding: 0 0 5px 0;
+	margin: 0 0 10px 0;
+	background-image: url(http://www.uni-marburg.de/hg_balken_dl.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+#veranstaltungen dl {
+  background-image: none;
+  padding: 0 ;
+  margin: 0 ;
+
+}
+#veranstaltungen dd {
+  padding-left: 0 ;
+}
+
+#veranstaltungen dd div {
+	padding: 0 0 15px 15px;
+	margin: 0 0 0 0;
+	background-image: url(http://www.uni-marburg.de/hg_balken_dl.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+}
+
+
+dl#iefix1 {
+	background-image: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+}
+
+dt {
+	padding: 4px 4px 4px 15px;
+	background-color: #1C74A4;
+	color: #FFF;
+	font-weight: bold;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #D1C1CF;
+	font-size: 0.9em;
+}
+
+dl#iefix2 dt {
+        display: none;
+}
+
+dd {
+	margin: 0 0 6px 0;
+	padding-left: 15px;
+	font-size: 0.9em;
+}
+
+dl#iefix1 dd {
+        display: none;
+}
+
+dd ul {
+	margin: 0;
+	padding: 4px 4px 4px 15px;
+	list-style-type: square;
+	color: #992519;
+}
+
+dd ul li {
+        margin: 0;
+	padding: 2px 0;
+}
+
+dd ul li a, dd p a {
+	color: #992519;
+	text-decoration: none;
+}
+
+dd ul li a:hover, dd p a:hover {
+	color: #992519;
+	text-decoration: underline;
+}
+
+ul ul, ul.disc {
+        list-style-type: circle;
+        margin-top: 2px;
+        margin-bottom: 5px;
+}
+
+ul#sprachschalter, ul#sprachschalter li {
+        display: inline;
+        float: left;
+}
+
+#sprachschalter li {
+        list-style: none;
+}
+
+#region-content dl  {
+	background-image: none;
+}
+
+#region-content dl dt {
+	background-color: #FFF;
+	border: none;
+}
+
+/*#spalte_links dl {
+	background-color: #FFF;
+}
+
+#spalte_rechts dl {
+	background-color: #FAF8EC;
+}*/
+
+#region-content td, #region-content td a  {
+	font-size: 1em;
+}
+
+/*
+#portal-breadcrumbs {
+    font-size: 0.85em;
+    margin: 1em 0 1em 0;
+    padding: 0.139em 2em 0 2em;
+    border-style: none;
+    border-width: 0;
+    text-transform: none;
+}
+*/
+
+td#doppelspalte {
+     border-right: 1px solid #666;
+     background-color: #FFF;
+     padding: 0;
+     margin: 0;
+}
+
+#doppelspalte table {
+     padding: 0;
+     margin: 0 0 0 3px;
+}
+
+#doppelspalte table tr {
+     vertical-align: middle;
+}
+
+#doppelspalte #portal-breadcrumbs {
+     margin-top: 1em;
+}
+
+/*#doppelspalte a {
+     font-size: 0.85em;
+}*/
+
+#spalte_rechts {
+	padding: 0;
+	margin: 0;
+	width: 180px !important;
+	background-color: #EEE;
+	border-right: 1px solid #666;
+        vertical-align: top;
+}
+
+#portlet-schnellsuche {
+	margin-top: 15px;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+td#spalte_mitte {
+	border-right: 1px solid #CCC;
+        background-color: #FFF;
+        vertical-align: top;
+}
+
+div.image-caption {
+  background: #f0f0f0;
+  /* border: 0 none black; */
+  overflow: hidden;
+  font-size: 0.85em;
+  color: #000;
+  margin: 0;
+  padding: 2px;
+}
+
+#portlet-imageportlet {
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: #CCCCCC;
+	margin-top: 0pt;
+        margin-right: 0pt;
+        margin-bottom: 10px;
+        margin-left: 0pt;
+	padding: 0 0 5px 0;
+	background-image: url(http://www.uni-marburg.de/hg_balken_dl.gif);
+	background-position: bottom;
+	background-repeat: repeat-x;
+        background-color: #ffffff;
+
+}
+
+
+#portlet-imageportlet div img{
+  /* width: 168px; */
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  position:relative;
+}
+
+#portlet-imageportlet div a{
+  color: #000;
+  font-size: 0.85em;
+  text-decoration:none;
+}
+
+/* IE 6 Hack (Vielleicht in ploneIEFixes.css speichern?) */
+* html #portlet-imageportlet div * p{
+  margin: 5px;
+  position:relative;
+}
+
+#imageportlet_content{
+/*  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+*/
+  background: #ffffff;
+  overflow: hidden;
+  padding: 2px;
+  position:relative;
+  width: 168px;
+  margin: 0 auto;
+
+}
+
+
+.image-right {
+        float: right;
+        clear: both;
+        margin: 0 0 0.5em 0.5em;
+}
+
+.image-left {
+        float: left;
+        clear: both;
+        margin: 0.5em 1.0em 0.5em 0;
+}
+
+img.image-inline {
+        float: none;
+        margin: 0.5em;
+}
+div.image-inline {
+        float: left;
+        clear: none;
+        margin: 0.5em;
+}
+
+.image-inline-nomargin {
+       float: none;
+}
+
+ol ul {
+        margin-top: 4px;
+        margin-bottom: 7px;
+}
+
+.gerade {
+        background-color: #F8F8F8;
+}
+
+.ungerade {
+        background-color: #EEE;
+}
+
+.funktion {
+        padding: 0em 0em 0em 1.2em;
+        color: #666666;
+}
+
+.geschwister {
+        color: #666666;
+}
+
+
+.rahmenlos, .plain {
+        border-collapse: collapse;
+        border: none;
+}
+
+* .rahmenlos tr, * .plain tr {
+        vertical-align: top !important;
+}
+
+.rahmenlos td, .rahmenlos th, .plain td, .plain th {
+        padding: 5px;
+}
+
+.rahmen1 {
+        border-collapse: collapse;
+        border: 1px none #DDD;
+}
+
+.listing {
+        border-collapse: collapse;
+        border: 1px solid #DDD;
+}
+
+.stinfo-rahmen1 {
+        border-collapse: collapse;
+        border: 1px none #DDD;
+}
+
+.stinfo-rahmen1 td, .stinfo-rahmen1 th {
+    border-color: #DDDDDD;
+    border-style: solid none;
+    border-width: 1px;
+    padding: 2px;
+    text-align: left;
+}
+
+.rahmen1 td, .rahmen1 th, .listing td, .listing th {
+        border: 1px solid #DDD;
+        padding: 2px;
+}
+
+* .rahmen1 tr, * .listing tr {
+        vertical-align: top !important;
+}
+
+.rahmen2, .grid {
+        border-collapse: collapse;
+        border: 1px solid #DDD;
+}
+
+.rahmen2 tr, .grid tr {
+        vertical-align: top;
+        border: 1px solid #DDD;
+}
+
+.rahmen2 th, .grid th {
+        background-color: #EEE;
+        padding: 2px;
+}
+
+.rahmen2 td, .grid td {
+        padding: 2px;
+}
+
+.angepasst, .data {
+        border-collapse: collapse;
+        border: 1px solid #808080;
+}
+
+.angepasst tr, .data tr {
+        vertical-align: top;
+}
+
+.angepasst .gerade, .data .gerade {
+        background-color: #F8F8F8;
+}
+
+.angepasst .ungerade, .data .ungerade {
+        background-color: #EEE;
+}
+
+.angepasst td, .data td, .angepasst th, .data th {
+        border-right: 1px dotted #808080;
+        border-left: 1px dotted #808080;
+        padding: 2px;
+}
+
+.center {
+        text-align: center;
+}
+
+.center table {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+}
+
+tr.top {
+        vertical-align: top;
+}
+
+tr.middle {
+        vertical-align: middle;
+}
+
+tr.bottom {
+        vertical-align: bottom;
+}
+
+#clear, .clear {
+       clear: both;
+}
+
+
+#alias-hint {
+  text-align: right;
+  font-size: 0.85em;
+  margin: 1em 1.3em 0 1.3em;
+  color: #56534C;
+  background-color: #EAEAEC;
+  clear: both;
+
+}
+
+p#status {
+        text-align: right;
+        font-size: 0.85em;
+        margin: 1em 1.3em;
+        color: #56534C;
+        clear: both;
+}
+
+/*#spalte_mitte h1 {
+	font-size: 1em;
+	font-weight: bold;
+	margin: 1.2em 0 !important;
+        padding: 0 !important;
+	border-style: none;
+	border-width: 0;
+}
+
+#spalte_mitte p {
+	font-size: 0.9em;
+	margin: 15px;
+}*/
+
+/* Hauptteil Ende ---------------------------------------- */
+
+/* Fussteil Anfang --------------------------------------- */
+
+#fb {
+	padding: 0;
+	margin: 0;
+	height: 30px;
+	width: 180px !important;
+        color: #FFF;
+	background-color: #1C74A4;
+	border: 1px solid #666;
+	/*border-left: 1px solid #666;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;*/
+}
+
+#fb p {
+	margin: 0;
+	color: #FFF;
+	padding: 2px 0 2px 15px;
+	font-size: 0.75em;
+}
+
+#byline {
+	height: 30px;
+	padding: 0;
+        margin: 0;
+	background-color: #FFF;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	background-image:  url(http://www.uni-marburg.de/hg_rahmen.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+}
+
+#byline p {
+	margin: 0;
+	color: #000;
+	padding: 1px 0 1px 2em;
+	font-size: 0.85em;
+        line-height: 1.1em;
+}
+
+#impressum {
+	height: 30px;
+	width: 180px !important;
+	padding: 0;
+	font-size: 0.85em;
+	background-color: #FFF;
+	border-top: 1px solid #666;
+	border-right: 1px solid #666;
+	border-bottom: 1px solid #666;
+}
+
+#impressum span {
+	padding-left: 10px;
+}
+
+/* Fussteil Ende ----------------------------------------- */
+
+
+/*noscript {
+	padding: 0 10px;
+}*/
+
+#seitenurl {
+        display: none;
+}
+
+#kontakt_email {
+        display: none;
+}
+
+
+
+/* Organization chart styles */
+
+
+#portal-organization-chart {
+margin-top: 1px;
+}
+
+
+
+#portal-organization-chart .depNavTreeEmpty{
+padding-left: 0.3em;
+}
+
+#portal-organization-chart .depClass{
+font-weight: bold;
+font-size: 0.85em;
+letter-spacing:0.2em;
+padding-top: 0.6em;
+zoom: 1;
+}
+
+#portal-organization-chart a {
+    border: 0px solid White;
+    display: inline;
+    text-decoration: none;
+    padding-top: 0.2em;
+    padding-bottom: 0.25em;
+}
+
+
+/*#portal-organization-chart a:hover {
+    border: 0px solid #8cacbb;
+    background-color: transparent;
+    color: #436976;
+    border: 0px solid #EAEAEC;
+}*/
+
+#portal-organization-chart .depNavTreeItem{
+padding-left: 1.5em;
+padding-top: 0.3em;
+padding-bottom: 0.3em;
+text-indent:-1.1em;
+margin-left: 2.0em;
+zoom: 1;
+}
+
+#portal-organization-chart .depNavTreeLevel0 {
+    margin: 0 0 0 2.5em;
+    zoom: 1;
+}
+
+#portal-organization-chart .depNavTreeLevel1 {
+    border-left: 0.5em solid #8cacbb;
+    margin: 0 0 0 2.5em;
+    zoom: 1;
+}
+
+
+#portal-organization-chart .depNavTreeLevel2 {
+    border-left: 0.5em solid #dee7ec;
+    margin: 0 0 0 2.5em;
+    zoom: 1;
+}
+
+
+#portal-organization-chart .depNavTreeLevel3 {
+    border-left: 0.5em solid #dee7ec;
+    margin: 0 0 0 2.5em;
+    zoom: 1;
+}
+
+
+#portal-organization-chart .homeImage {
+    margin: 0 0 -2px 0;
+}
+
+#portal-organization-chart .peopleImage {
+    margin: 0 0 -2px 0;
+}
+
+
+#people_structural .rahmenlos h2{
+padding-top: 1.0em;
+padding-bottom: 0.3em;
+margin:0;
+}
+
+#people_structural .rahmenlos h2.peopleClass{
+padding-top: 1.0em;
+padding-bottom: 1.3em;
+margin:0;
+}
+
+
+
+#people_structural .rahmenlos h3{
+/*padding-top: 0.5em;
+padding-bottom: 0.3em;
+margin:0;*/
+margin: 1.0em 0 0 0;
+padding: 0.6em 0 0.3em 0.3em;
+border-top: 1px solid #CCC;
+border-left: 1px solid #CCC;
+background-color: #F8F8F8;
+}
+
+#people_structural .rahmenlos h4{
+padding: 0.2em 0 0 0.3em;
+margin:0;
+}
+
+#people_structural .rahmenlos td.first{
+padding: 0;
+}
+
+#people_structural .rahmenlos td div{
+padding: 0.2em;
+}
+
+#people_structural .rahmenlos td{
+padding: 0.2em;
+}
+
+
+/* hislsf */
+
+.lsfvvz table {
+    padding-top: 0.5em;
+    margin: 0;
+}
+
+.lsfvvz td {
+    background-color: #F8F8F8;
+}
+
+.lsfvvz th.first {
+    padding-top: 0.5em;
+    background-color: #EEE;
+}
+
+.lsfvvz th span {
+        font-weight: normal;
+}
+
+
+/*    LinguaPlone's global_languageselector    */
+
+.visualGhosted {
+opacity: 0.4;
+-moz-opacity: 0.4;
+-khtml-opacity: 0.4;
+}
+
+
+.actionSep {
+/*    font-size: 0.85em; */
+    color: #DDDDDD
+}
+
+a.currentLanguage {
+   border-collapse: collapse;
+   position: relative;
+   border: 1px solid #CCCCCC;
+   margin: 0;
+   padding: 0;
+}
+
+img.currentLanguage {
+   border-collapse: collapse;
+   position: relative;
+   border: 1px solid #CCCCCC;
+   margin: 0;
+   padding: 1px;
+   width: 14px;
+}
+
+img.notLanguage {
+   border-collapse: collapse;
+   position: relative;
+   border: 0;
+   margin: 0;
+   padding: 2px;
+}
+
+img.rss {
+   float: right;
+}
+
+.supportedLanguage {
+   text-transform: uppercase;
+}
+
+/* Breadcrump navigation and document actions */
+
+#document_functions {
+        padding-left: 1em;
+        padding-right: 0em;
+        padding-top: 1em;
+        padding-bottom: 2em;
+        clear: left;
+/*      margin: 1em 0 0 0; */
+       
+
+}
+
+#document_functions #portal-breadcrumbs, 
+#document_functions .documentActions {
+	float: left;
+        margin: 0;
+}
+
+
+#portal-breadcrumbs {
+        font-size: 0.85em;
+        text-transform: none;
+	color: #808080;
+        border: 0;
+	width: 78%;
+        margin: 0 0 0 0;
+        padding: 0; 
+}
+
+
+/* document 2 col span */
+#document_functions_2col {
+        padding-left: 1em;
+        padding-right: 0;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        clear: left;
+}
+
+#document_functions_2col #portal-breadcrumbs, 
+#document_functions_2col .documentActions {
+	float: left;
+        margin: 0;
+}
+
+#document_functions_2col #portal-breadcrumbs {
+	width: 56%;
+}
+
+
+#document_functions_2col #portlet-schnellsuche,
+#document_functions_2col #portlet-schnellsuche p {
+	margin: 0;
+        padding: 0;
+        clear: none;
+}
+
+
+div.documentActions {
+        font-size: 0.85em;
+	width: 18%;
+        margin: 0;
+        padding: 0;
+        float: right;
+}
+
+.documentActions a:hover {
+        text-decoration: none;
+}
+
+.documentActions ul {
+	float: right;
+        clear: none;
+        margin: 0;
+        padding-right: 0.8em;
+}
+
+.documentActions img {
+	margin: 0 0 0 0.0em;
+	width: 16px;
+        height: 16px;
+}
+.documentActions img.currentLanguage, .documentActions img.notLanguage {
+        width: 14px;
+        height: 11px;
+}
+
+.documentActions img#document_action_sitemap {
+        width: 17px;
+        height: 15px;
+}
+
+.documentActions ul li {
+	list-style-type: none;
+	display: inline;
+}
+
+.field input {
+        font-size: 1em !important;
+}
+
+#hauptnavigation td a {
+        display: block;
+        width: 100% !important;
+}
+
+#portlet-untermenue a {
+}
+
+/* Collapsible elements */
+dl.collapsible {
+border: 1px solid #EAEAEC !important;
+margin: 1em 0 0 0;
+padding: 0;
+}
+dl.collapsible dt.collapsibleHeader {
+display: block;
+float: left;
+background: White;
+line-height: 1.2em;
+vertical-align: middle;
+font-size: 90%;
+position: relative;
+top: -0.6em;
+width: auto;
+margin: 0 0 -0.6em 1em;
+padding: 0 0.5em;
+}
+dl.collapsible dd.collapsibleContent {
+margin: 0;
+padding: 0 1em;
+clear: left;
+}
+
+/* for IE the following isn't needed, that's why the css2 selector is used */
+dl.collapsible dd.collapsibleContent > dl {
+margin: 0;
+padding: 0;
+}
+
+dl.expandedInlineCollapsible dt.collapsibleHeader,
+dl.expandedBlockCollapsible dt.collapsibleHeader {
+padding: 0 6px 0 22px;
+background: White url(treeExpanded.gif) no-repeat 6px 50%;
+cursor: pointer;
+}
+
+dl.collapsedBlockCollapsible {
+border: none !important;
+height: 1em;
+width: auto;
+}
+dl.collapsedBlockCollapsible dt.collapsibleHeader {
+float: none;
+position: static;
+margin: 0;
+padding: 0 0 0 22px;
+line-height: 1em;
+background: transparent url(treeCollapsed.gif) no-repeat 6px 50%;
+cursor: pointer;
+}
+dl.collapsedInlineCollapsible dd.collapsibleContent,
+dl.collapsedBlockCollapsible dd.collapsibleContent {
+display: none;
+}
+dl.collapsedInlineCollapsible {
+border: none !important;
+height: 1em;
+width: auto;
+display: inline;
+}
+dl.collapsedInlineCollapsible dt.collapsibleHeader {
+position: static;
+float: none;
+margin: 0;
+padding: 0 0 0 22px;
+line-height: 1em;
+background: transparent url(treeCollapsed.gif) no-repeat 6px 50%;
+cursor: pointer;
+display: inline;
+}
+
+
+/* ENDE */
+
+#unimr_shorten_overlay {
+    position: relative;
+    left: -50px;
+    top: -103px;
+}
+#unimr_shorten_overlay_arrow {
+    position: absolute !important;
+    width: 20px;
+    height: 24px;
+    bottom: -9px;
+    left: 100px;
+    background: url("/arrow_icon.gif") no-repeat scroll center bottom transparent;
+}
+#unimr_shorten_overlay_close {
+    background: url("/close_icon.gif") no-repeat scroll right top transparent;
+    position: absolute !important;
+    top: 3px;
+    right: 3px;
+    width: 15px;
+    height: 15px;
+}
+#unimr_shorten_overlay_content {
+    position: absolute !important;
+    width: 190px;
+    height: 50px;
+    z-index: 2;
+    padding: 10px;
+    box-shadow: 2px 2px 10px rgb(136, 136, 136);
+    border: 1px solid rgb(153, 153, 153);
+    background: none repeat scroll 0pt 0pt rgb(249, 249, 249);
+}
+
+pre { 
+background-color: #F4F4F4;
+}
+
+div.document_list_item {
+    margin-top: 1em;
+}
+
+hr.clear {
+  clear: both;
+  margin: 0;
+}
+
+/*  */
+
+
+
+
+
+ 

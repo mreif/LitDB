@@ -1,0 +1,172 @@
+a {
+    color: #0A4681;
+}
+
+/* Seitenkopf Anfang ------------------------------------- */
+
+#emo, #banner {
+    background-color: #0E4479;
+}
+
+/* Seitenkopf Ende --------------------------------------- */
+
+/* Navigation Anfang ------------------------------------- */
+
+td#start, #menue td {
+    border-top: 1px solid #FFF;
+    border-right: 1px solid #FFF;
+}
+
+td#start {
+    border-left: 1px solid #666;
+}
+
+#hauptnavigation td.current, #menue td.current {
+    color: #FFF;
+    background-color: #0E4479;
+}
+
+#hauptnavigation td a.aktiv, #menue td a.aktiv {
+    color: #FFF;
+    background-color: #0E4479;
+}
+
+#hauptnavigation td a {
+    background-color: #68696A;
+    color: #FFF;
+}
+
+#hauptnavigation td a:hover {
+    color: #FFF;
+    background-color: #0E4479;
+}
+
+/* Navigation Ende --------------------------------------- */
+
+
+/* Hauptteil Anfang -------------------------------------- */
+
+#portlet-untermenue a.aktiv {
+    background-color: #FDFEFF;
+    color: #000;
+}
+
+#portlet-untermenue ul li {
+    background-color: #F5FAFF;
+    color: #000;
+}
+
+#portlet-untermenue ul li a {
+    color: #000;
+}
+
+#portlet-untermenue ul li a:hover {
+    background-color: #FDFEFF;
+    color: #000;
+}
+
+#portlet-kontakt dl, #portlet-kontakt dd {
+    background-color: #E4EAEA;
+}
+
+dl, dd {
+    background-color: #F7F7F7;
+}
+
+dt {
+    color: #000;
+    background-color: #D4D3D3;
+}
+
+dd ul li {
+    color: #000; 
+}
+
+dd p a, dd ul li a {
+    color: #0A4681;
+    text-decoration: none;
+}
+
+dd ul li a:hover {
+    color: #0A4681;
+    text-decoration: underline;
+}
+
+#spalte_links, #spalte_rechts {
+    background-color: #FFF;
+}
+
+/* Hauptteil Ende ---------------------------------------- */
+
+
+/* Fussteil Anfang --------------------------------------- */
+
+#fb {
+    background-color: #0E4479;
+}
+
+/* Fussteil Ende ----------------------------------------- */
+
+
+/* Bearbeiten Anfang-------------------------------------- */
+
+.contentViews {
+    border-color: #0E4479;
+}
+
+.contentViews li a {
+    border-color: #0E4479;
+    color: #0A4681;
+}
+
+.contentViews .selected a {
+    background-color: #F5FAFF;
+    border-bottom-color: #0E4479;
+    color: #0A4681;
+}
+
+.contentViews li a:hover {
+    background-color: #F5FAFF;
+    color: #0A4681;
+}
+
+.contentActions {
+    background-color: #FFF;
+    border-left-color: #0E4479;
+    border-right-color: #0E4479;
+    color: #0A4681;
+}
+
+.contentActions li {
+    border-left-color: #0E4479;
+}
+
+.contentActions a {
+    color: #0A4681;
+}
+
+.contentActions .actionMenu {
+    background-color: #FFF;
+    border-color: #0E4479;
+}
+
+actionMenu li a:hover {
+    background-color: #F5FAFF;
+    color: #0A4681;
+}
+
+.actionMenu .actionSeperator a {
+    border-top-color: #0E4479;
+}
+
+.documentEditable .documentContent {
+    border-color: #0E4479;
+}
+
+#verteilte_systeme {
+    border: none;
+}
+
+#verteilte_systeme .even {
+
+}
