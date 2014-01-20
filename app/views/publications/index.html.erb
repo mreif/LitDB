@@ -30,9 +30,9 @@
 					<%= publication.title %>
 				</span>
 				<% if publication.upload_file_name != nil %> 
-					<%= button_to "PDF",  publication.upload.url(:original, false), :method => :get, class: "glyphicon glyphicon-save" %>
+					<%= button_to "PDF",  publication.upload.url(:original, false), :method => :get %>
 				<% end %>
-				<%= button_to "BibTex", publication_bibtex_path(publication), :method => :get,  :remote => 'true', class: "glyphicon glyphicon-book", :style => "display:inline !important;" %>
+				<%= button_to "BibTex", publication_bibtex_path(publication), :method => :get,  :remote => 'true', :style => "display:inline !important;" %>
 				<br />
 				<span class="paper_bib"> <%= simple_format_span getInformationRow(publication) %> </span>
 				<% if user_signed_in? %>
