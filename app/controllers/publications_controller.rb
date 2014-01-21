@@ -8,12 +8,13 @@ class PublicationsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index, :bibtex, :abstract]
   
   # caches the index action, until some create or delete method is triggered
-  caches_action :index, :layout => false
+  #caches_action :index, :layout => false
   
   # GET /publications
   # GET /publications.json
   def index
     @publications = Publication.all
+    
   end
 
   # GET /publications/1
@@ -61,7 +62,7 @@ class PublicationsController < ApplicationController
       flash[:pdf_notice] = get_msg md_exists
     else
       @publication.set_rdy_to_save true
-      expire_action :action => :index
+      #expire_action :action => :index
     end
     
     respond_to do |format|
@@ -82,7 +83,7 @@ class PublicationsController < ApplicationController
   # PUT /publications/1.json
   def update
     @publication = Publication.find(params[:id])
-    expire_action :action => :index
+    #expire_action :action => :index
     respond_to do |format|
       if @publication.update_attributes(params[:publication])
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
@@ -99,7 +100,7 @@ class PublicationsController < ApplicationController
   def destroy
     @publication = Publication.find(params[:id])
     @publication.destroy
-    expire_action :action => :index
+    #expire_action :action => :index
     respond_to do |format|
       format.html { redirect_to publications_url }
       format.json { head :no_content }
