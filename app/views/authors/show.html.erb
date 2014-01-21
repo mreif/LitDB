@@ -3,7 +3,7 @@
 
 <% publications = @author.publications.sort { |a, b| b.year <=> a.year || b.created_at <=> a.created_at } %>
 <h2 class="news" >
-	<%= @author.first_name[0] + ". " + @author.last_name %> Publications
+	<%= @author.first_name[0] + ". " + @author.last_name %>'s Publications
 	<input id="srch" type="text" value="" autofocus="true" size="45" style="float:right"/>
 </h2>
 <div class="newslisting">
