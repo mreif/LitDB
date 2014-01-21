@@ -1,54 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<% if @author.image.url.include? "/images/small/missing.png"%>
-	<%= image_tag @author.image.url(:small) %>
-<% end %>
 
-<table border="1" class="rahmen">
-	<tr class="rahmen">
-		<td class="rahmen"><b>Name:</b> </td>
-		<td class="rahmen"><%= @author.title + " " + @author.first_name + " " + @author.last_name %></td>
-	</tr>
-	<tr class="rahmen">
-		<td class="rahmen"><b>Email:<b/></td>
-		<td class="rahmen"><%= mail_to @author.email, nil, :replace_at => "(at)", :encode => "hex" %></td>
-	</tr>
-	<tr>
-		<td class="rahmen"><b>Office:<b/></td>
-		<td class="rahmen"><%= @author.office %></td>
-	</tr>
-	<tr class="rahmen">
-		<td class="rahmen"><b>Address:<b/></td>
-		<td class="rahmen">
-			<%= @author.street %><br />
-  			<%= @author.zip_code + " " +  @author.city %>
-		</td>
-	</tr>
-	<tr class="rahmen">
-		<td class="rahmen"><b>Phones:<b/></td>
-		<td class="rahmen"><%= @author.phone %></td>
-	</tr>
-	<tr class="rahmen">
-		<td class="rahmen"><b>Website:<b/></td>
-		<td class="rahmen"><%= link_to( @author.url, @author.url ) %></td>
-	</tr>
-	<tr class="rahmen">
-		<td class="rahmen"><b>Curriculum Vitae:<b/></td>
-		<td class="rahmen"><%= @author.cv %></td>
-	</tr>
-</table>
-
-<br />
-<% if user_signed_in? %>
-	<%= link_to 'Edit', edit_author_path(@author) %> |
-<% end %>
-<%= link_to 'Back', :back %>
 
 <% publications = @author.publications.sort { |a, b| b.year <=> a.year || b.created_at <=> a.created_at } %>
+<h2 class="news" >
+	<%= @author.first_name[0] + ". " + @author.last_name %> Publications
+	<input id="srch" type="text" value="" autofocus="true" size="45" style="float:right"/>
+</h2>
 <div class="newslisting">
-<% if !publications.empty? %>
-<h3 class="news"> Authors Publications </h3>
-<% end %>
 
 <% num = 1 %>
 <% publications.each do |publication| %>
@@ -89,5 +47,5 @@
 			</div>			
 <% num += 1 %>
 <% end %>
-</p>
+<%= link_to 'Back', :back %>
 </div>
