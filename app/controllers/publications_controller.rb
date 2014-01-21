@@ -8,13 +8,12 @@ class PublicationsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index, :bibtex, :abstract]
   
   # caches the index action, until some create or delete method is triggered
-  caches_action :index
+  caches_action :index, :layout => false
   
   # GET /publications
   # GET /publications.json
   def index
     @publications = Publication.all
-
   end
 
   # GET /publications/1
@@ -83,7 +82,7 @@ class PublicationsController < ApplicationController
   # PUT /publications/1.json
   def update
     @publication = Publication.find(params[:id])
-
+    expire_action :action => :index
     respond_to do |format|
       if @publication.update_attributes(params[:publication])
         format.html { redirect_to @publication, notice: 'Publication was successfully updated.' }
@@ -100,7 +99,7 @@ class PublicationsController < ApplicationController
   def destroy
     @publication = Publication.find(params[:id])
     @publication.destroy
-
+    expire_action :action => :index
     respond_to do |format|
       format.html { redirect_to publications_url }
       format.json { head :no_content }
