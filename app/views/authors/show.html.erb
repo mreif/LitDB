@@ -8,7 +8,7 @@
 </h2>
 <div class="newslisting">
 
-<% num = 1 %>
+<% num = publications.count %>
 <% publications.each do |publication| %>
 			<% fauthors_search = getFormatedAuthors(publication.authors.order('authorships.pos ASC')) %>
 		<% fauthors = "" %>
@@ -45,7 +45,7 @@
 			<div>
 				<div id="bibtex_<%= publication.id.to_s %>"></div>
 			</div>			
-<% num += 1 %>
+<% num -= 1 %>
 <% end %>
 <%= link_to 'Back', :back %>
 </div>
