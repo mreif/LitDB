@@ -9,7 +9,6 @@ class Author < ActiveRecord::Base
   has_many :publications, through: :authorships
   
   # paperclip
-  
   validates_presence_of :first_name, :last_name
   
   has_attached_file :image, :styles => { :small => "350x250>" }

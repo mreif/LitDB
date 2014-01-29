@@ -37,7 +37,13 @@
         :onclick=>"javascript:window.open(this.href,'create_author', 'height=600, width=600'); return false;" %> to create a new author.
     <!--> Click <%= link_to "here", new_author_path %> to create a new author. </-->
   </div>
-  
+  <div class="field all important">
+  	<%= f.label :project_tokens, "Projects" %><br />
+    <%= f.text_field :project_tokens, data: { load: @publication.projects } %>
+    Click <%= link_to 'here',
+         new_project_path, 
+        :onclick=>"javascript:window.open(this.href,'create_project', 'height=600, width=600'); return false;" %> to create a new project.
+  </div>
   <div class="field all important publisher">
     <%= f.label :publisher %><br />
     <%= f.text_field :publisher %>

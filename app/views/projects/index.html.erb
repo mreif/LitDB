@@ -1,0 +1,30 @@
+<div id="content">
+<% if user_signed_in? %>
+		<%= link_to 'New Project', new_project_path %>
+<% end %>
+<h2 class="news" >
+	Projects
+</h2>
+	<div class="newslisting">
+<% num = 0 %>
+<% @projects.each do |project| %>
+	<% if num % 2 == 1 %>
+		<div class="project odd">
+	<% else %>
+		<div class="project even">
+	<% end %>
+		<span> <%= link_to project.name, project %></span> <br/>
+		<!-- > <span> <%= project.description %></span> -->
+		<% if user_signed_in? %>
+		<table>
+			<td white-space="nowrap"> <%= button_to "Edit", edit_project_path(project), :method => :get %> </td>
+			<td white-space="nowrap"><%= button_to "Delete", project_path(project), :confirm => 'Are you sure you want to delete this publication?', :method => :delete %> </td>
+		</table>
+		<% end %>
+ 		 </div>
+<% num = num + 1%>
+<% end %>
+	</div>
+</div>
+
+

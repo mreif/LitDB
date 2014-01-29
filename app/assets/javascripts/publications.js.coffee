@@ -16,6 +16,12 @@ jQuery ->
     propertyToSearch: 'search_name',
     preventDuplicates: true,
     prePopulate: $('#publication_author_tokens').data('load')
+    
+jQuery ->
+  $('#publication_project_tokens').tokenInput '/projects.json',
+    propertyToSearch: 'name',
+    preventDuplicates: true,
+    prePopulate: $('#publication_project_tokens').data('load')
         
 jQuery -> 
     $('#publication_type_id').change ->

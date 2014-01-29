@@ -13,7 +13,12 @@ class PublicationsController < ApplicationController
   # GET /publications
   # GET /publications.json
   def index
-    @publications = Publication.all
+    @publications = Publication.order(:year)
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @publications.tokens(params[:q]) }
+    end
     
   end
 

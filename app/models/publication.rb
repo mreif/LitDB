@@ -5,13 +5,18 @@ class Publication < ActiveRecord::Base
   
   # accessible attributes
   attr_accessible :abstract, :city, :date_of_last_access, :doi, :edition, :institution, :issue, :journal, :university,
-   :keywords, :pages, :publisher, :title, :url, :volume, :year, :upload, :author_tokens, :type_id, :editor, :book_title, :authorships, :published_in
+   :keywords, :pages, :publisher, :title, :url, :volume, :year, :upload, :author_tokens, :project_tokens, :type_id,
+    :editor, :book_title, :authorships, :published_in, :publicationcontexts
   
-  attr_reader :author_tokens
-  
-  # relationsships
+  attr_reader :author_tokens, :project_tokens
+ 
+  # relationships
   has_many :authorships
   has_many :authors, through: :authorships
+  
+  has_many :publicationcontexts
+  has_many :projects, through: :publicationcontexts
+  
   belongs_to :type
   
 
@@ -34,7 +39,7 @@ class Publication < ActiveRecord::Base
     if self.url == 'http://www.'
       self.url = ''
     end
-    @publication.authorships.each_with_index do |authorship, i|
+    self.authorships.each_with_index do |authorship, i|
       authorship.pos = i
     end
   end
@@ -66,6 +71,10 @@ class Publication < ActiveRecord::Base
     self.author_ids = Author.ids_from_tokens(tokens)
   end
   
+  def project_tokens=(tokens)
+    self.project_ids = Project.ids_from_tokens(tokens)
+  end
+  
   #used for contitional post, only need to validate the attributes on save (pdf_upload)
   
   def set_rdy_to_save bool
@@ -74,5 +83,20 @@ class Publication < ActiveRecord::Base
   
   def rdy_to_save?
       @rdy_to_save
+  end
+  
+  # query for the publications search on the 'project' site
+  def self.tokens(query)
+    publications = where("title like ?", "%#{query}%")
+    if !publications.empty?
+      publications
+    end
+    # else no results found
+  end
+  
+  # extract ids from the found authors
+  def self.ids_from_tokens(tokens)
+    tokens.gsub!(/<<<(.+?)>>>/) { create!(title: $1).id }
+    tokens.split(',')
   end
 end
