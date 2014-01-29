@@ -2,7 +2,7 @@ LiteraturDB::Application.routes.draw do
 #scope "/LiteratureDB" do
   devise_for :users
 
-  resources :authors, :publications, :types
+  resources :authors, :publications, :types, :projects
   
   root :to => 'publications#index'
   resources :publications do
