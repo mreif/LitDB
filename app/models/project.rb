@@ -24,4 +24,9 @@ class Project < ActiveRecord::Base
     tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
     tokens.split(',')
   end
+  
+  def publication_tokens=(tokens)
+    self.publication_ids = Publication.ids_from_tokens(tokens)
+  end
+  
 end
